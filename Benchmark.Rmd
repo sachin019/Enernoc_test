@@ -21,6 +21,10 @@ Where `sites` is an integer representing the number of sites for which TS data s
 
 
 ## Results
-Sites | No. of Records | Time taken | Time/Record
------ | -------------- | ---------- | -----------
-Test  | tets           |dddd        | ddddddd
+Sites | Data (MB)      | Records    | Data/Record | Time taken  | Time / Record
+----- | -------------- | ---------- | ----------- | ----------- | -------------
+100   | 442 MB         | 21024100   | 0.029 KB    | 335 seconds | 0.0159 ms
+250   | 1203 MB        | 52560250   | 0.028 KB    | 804 seconds | 0.0152 ms
+500   | 2402 MB        | 105120500  | 0.028 KB    | 1656 seconds| 0.0157 ms
+750   | 3584 MB        | 157680750  | 0.027 KB    | 2477 seconds| 0.0157 ms
+1000  | 4802 MB        | 210241000  | 0.028 KB    | 3342 seconds| 0.0158 ms
