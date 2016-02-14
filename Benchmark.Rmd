@@ -1,18 +1,18 @@
 ### Benchmarking Spark-Cassandra connector
 
-## Compiling
+#### Compiling
 On the project folder run
 ```
 sbt package
 ```
 
-## Copying
+#### Copying
 Copy the library created in the compile step to the docker container with:
 ```
 docker cp test:/tmp
 ```
 
-## Running
+#### Running
 On the docker container, run:
 ```
 spark-submit --class Connect --packages datastax:spark-cassandra-connector:1.5.0-RC1-s_2.10,org.clapper:grizzled-slf4j_2.11:1.0.2 /tmp/sparkcassandra_2.10-1.0.jar <number_of_sites>
