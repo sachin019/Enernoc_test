@@ -1,25 +1,23 @@
 ### Benchmarking Spark-Cassandra connector
 
-
-## Introduction
-This document shows how to run the Spark Cassandra Benchmark scala script.
-There are 3 parts to the Benchmark
-1. 
-
 ## Compiling
-
-
-## Running
-Start a spark docker container with the following parameters:
+On the project folder run
 ```
-docker run -it -p 8088:8088 -p 8042:8042 -p 9999:9999 --name sparkC -h spark-sandbox sequenceiq/spark:1.6.0 bash
+sbt package
 ```
+
+## Copying
 Copy the library created in the compile step to the docker container with:
 ```
-docker cp  sparkC:/tmp
+docker cp test:/tmp
 ```
+
+## Running
 On the docker container, run:
 ```
-spark-submit --class Benchmark --packages="com.quantifind:wisp_2.10:0.0.4" --conf spark.driver.memory=2g /tmp/benchmark_2.10-1.0.jar <sites>
+spark-submit --class Connect --packages datastax:spark-cassandra-connector:1.5.0-RC1-s_2.10,org.clapper:grizzled-slf4j_2.11:1.0.2 /tmp/sparkcassandra_2.10-1.0.jar <number_of_sites>
 ```
 Where `sites` is an integer representing the number of sites for which TS data should be created
+
+
+## Results
