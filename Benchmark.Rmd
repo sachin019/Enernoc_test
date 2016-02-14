@@ -37,7 +37,8 @@ Where `sites` is an integer representing the number of sites for which TS data s
 
 ## Results
 
-The code was executed on a Docker container with 4 GB of RAM for sites from 100 to 1000.
+The code was executed on a Docker container with 4 GB of RAM for sites from 100 to 1000
+
 Sites | Data (MB)      | Records    | Data/Record | Time taken  | Time / Record
 ----- | -------------- | ---------- | ----------- | ----------- | -------------
 100   | 442 MB         | 21024100   | 0.029 KB    | 335 seconds | 0.0159 ms
