@@ -21,3 +21,6 @@ Where `sites` is an integer representing the number of sites for which TS data s
 
 
 ## Results
+Sites | No. of Records | Time taken | Time/Record
+----- | -------------- | ---------- | -----------
+Test  | tets           |dddd        | ddddddd
