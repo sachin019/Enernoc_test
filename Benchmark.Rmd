@@ -1,5 +1,20 @@
 ### Benchmarking Spark-Cassandra connector
 
+This part describes the Benchmarking of Writes into Cassandra from Spark.
+
+#### Cassandra Table Schema
+
+The table to which data is written is created with the following schema
+```
+CREATE TABLE sample.testdata(
+ key int,
+ month int,
+ date timestamp,
+ value double,
+ PRIMARY KEY ((key, month),date)
+);
+```
+
 #### Compiling
 On the project folder run
 ```
@@ -21,6 +36,8 @@ Where `sites` is an integer representing the number of sites for which TS data s
 
 
 ## Results
+
+The code was executed on a Docker container with 4 GB of RAM for sites from 100 to 1000.
 Sites | Data (MB)      | Records    | Data/Record | Time taken  | Time / Record
 ----- | -------------- | ---------- | ----------- | ----------- | -------------
 100   | 442 MB         | 21024100   | 0.029 KB    | 335 seconds | 0.0159 ms
@@ -28,3 +45,5 @@ Sites | Data (MB)      | Records    | Data/Record | Time taken  | Time / Record
 500   | 2402 MB        | 105120500  | 0.028 KB    | 1656 seconds| 0.0157 ms
 750   | 3584 MB        | 157680750  | 0.027 KB    | 2477 seconds| 0.0157 ms
 1000  | 4802 MB        | 210241000  | 0.028 KB    | 3342 seconds| 0.0158 ms
+
+The Average time taken for writing a record into Cassandra was ```0.0155 ms```
