@@ -31,7 +31,7 @@ docker cp  target/scala-2.10/SparkCassandra-assembly-1.0.jar test:/tmp
 #### Running
 On the docker container
 
-1. To run the Writes Benchmark:
+1.To run the Writes Benchmark:
 ```
 spark-submit --class WriteTS /tmp/sparkcassandra_2.10-1.0.jar <number_of_sites>
 ```
@@ -51,4 +51,4 @@ Sites | Data (MB)      | Records    | Data/Record | Time taken  | Time / Record
 
 The Average time taken for writing a record into Cassandra was ```0.0155 ms```
 
-2. To run the Reads benchmark
+2.To run the Reads benchmark
