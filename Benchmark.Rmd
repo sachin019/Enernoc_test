@@ -36,9 +36,8 @@ On the docker container
 spark-submit --class WriteTS /tmp/sparkcassandra_2.10-1.0.jar <number_of_sites>
 ```
 Where `sites` is an integer representing the number of sites for which TS data should be created
-2.
 
-## Results
+#### Results
 
 The code was executed on a Docker container with 4 GB of RAM for sites from 100 to 1000
 
@@ -51,3 +50,5 @@ Sites | Data (MB)      | Records    | Data/Record | Time taken  | Time / Record
 1000  | 4802 MB        | 210241000  | 0.028 KB    | 3342 seconds| 0.0158 ms
 
 The Average time taken for writing a record into Cassandra was ```0.0155 ms```
+
+2. To run the Reads benchmark
