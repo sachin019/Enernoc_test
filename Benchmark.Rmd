@@ -18,22 +18,25 @@ CREATE TABLE sample.testdata(
 #### Compiling
 On the project folder run
 ```
-sbt package
+sbt assembly
 ```
+This will create the fat jar for the project with all the dependencies.
 
 #### Copying
 Copy the library created in the compile step to the docker container with:
 ```
-docker cp test:/tmp
+docker cp  target/scala-2.10/SparkCassandra-assembly-1.0.jar test:/tmp
 ```
 
 #### Running
-On the docker container, run:
+On the docker container
+
+1. To run the Writes Benchmark:
 ```
-spark-submit --class Connect --packages datastax:spark-cassandra-connector:1.5.0-RC1-s_2.10,org.clapper:grizzled-slf4j_2.11:1.0.2 /tmp/sparkcassandra_2.10-1.0.jar <number_of_sites>
+spark-submit --class WriteTS /tmp/sparkcassandra_2.10-1.0.jar <number_of_sites>
 ```
 Where `sites` is an integer representing the number of sites for which TS data should be created
-
+2.
 
 ## Results
 
