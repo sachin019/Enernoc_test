@@ -31,15 +31,22 @@ docker cp  target/scala-2.10/SparkCassandra-assembly-1.0.jar test:/tmp
 #### Running
 On the docker container
 
-1.To run the Writes Benchmark:
+**1.To run the Writes Benchmark:**
 ```
 spark-submit --class WriteTS /tmp/sparkcassandra_2.10-1.0.jar <number_of_sites>
 ```
 Where `sites` is an integer representing the number of sites for which TS data should be created
 
-#### Results
+**2.To run the Reads benchmark:**
 
-The code was executed on a Docker container with 4 GB of RAM for sites from 100 to 1000
+```
+spark-submit --class ReadTS /tmp/sparkcassandra_2.10-1.0.jar <number_of_sites>
+```
+where `sites` is the number of random sites whose data will be fetched from Cassandra
+
+**The code was executed on a Docker container with 4 GB of RAM for sites from 100 to 100**
+
+#### Results(Writes)
 
 Sites | Data (MB)      | Records    | Data/Record | Time taken  | Time / Record
 ----- | -------------- | ---------- | ----------- | ----------- | -------------
@@ -49,23 +56,18 @@ Sites | Data (MB)      | Records    | Data/Record | Time taken  | Time / Record
 750   | 3584 MB        | 157680750  | 0.027 KB    | 2477 seconds| 0.0157 ms
 1000  | 4802 MB        | 210241000  | 0.028 KB    | 3342 seconds| 0.0158 ms
 
-The Average time taken for writing a record into Cassandra was ```0.0155 ms```
+The Average time taken for writing a TS record into Cassandra was ```0.0156 ms```
 
-2.To run the Reads benchmark
 
-```
-spark-submit --class ReadTS /tmp/sparkcassandra_2.10-1.0.jar <number_of_sites>
-```
-where `sites` is the number of random sites whose data will be fetched from Cassandra
-
-#### Results
-
-The code was executed on a Docker container with 4 GB of RAM for sites from 100 to 1000
+#### Results(Reads)
 
 Sites | Records    | Time taken  | Time / Record
 ----- | ---------- | ----------- | -------------
 100   | 21024100   | 490 seconds | 0.0233 ms
 250   | 52560250   | 1185 seconds| 0.0254 ms
 500   | 105120500  | 2386 seconds| 0.0269 ms
-750   | 157680750  | 3620 seconds| 0.0029 ms
+750   | 157680750  | 3620 seconds| 0.0290 ms
 1000  | 210241000  | 4690 seconds| 0.0230 ms
+
+The Average time taken for reading a random TS reord from Cassandra was ```0.0255 ms```
+
