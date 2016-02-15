@@ -69,5 +69,5 @@ Sites | Records    | Time taken  | Time / Record
 750   | 157680750  | 3620 seconds| 0.0290 ms
 1000  | 210241000  | 4690 seconds| 0.0230 ms
 
-The Average time taken for reading a random TS reord from Cassandra was ```0.0255 ms```
+The Average time taken for reading a random TS record from Cassandra was ```0.0255 ms```
 
